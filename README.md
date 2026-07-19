@@ -1,10 +1,6 @@
 # Team6_SmartEcoGymApp
 
-# 1. The Hook
-Smart Eco Gym is our submission for the Biomedical (Human Performance) mini-challenge: 
-Use data from wearable sensors and heart rate monitors to automatically identify different exercises and calculate how efficient a workout really is.
-
-The problem!
+# 1. The Hook /The problem!
 Wearable devices collect large amounts of fitness data, but those raw numbers don't help most gym members understand their own workout performance. Whether someone is new to the gym or an experienced athlete, they're often left staring at a heart-rate graph with no idea what it actually means for their training. Smart Eco Gym takes that raw sensor data and turns it into something useful: estimated calories burned, a summary of each workout, a comparison of calories burned across different activities, and a clear recommendation of the user's highest calorie-burning workout.
 
 # 2. The Audience
