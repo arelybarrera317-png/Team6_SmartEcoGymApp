@@ -4,17 +4,17 @@
 Wearable devices collect large amounts of fitness data, but those raw numbers don't help most gym members understand their own workout performance. Whether someone is new to the gym or an experienced athlete, they're often left staring at a heart-rate graph with no idea what it actually means for their training. Smart Eco Gym takes that raw sensor data and turns it into something useful: estimated calories burned, a summary of each workout, a comparison of calories burned across different activities, and a clear recommendation of the user's highest calorie-burning workout.
 
 # 2. The Audience
-Gym members who use wearable devices ( gym people and experienced athletes) — who want clear, simple insight into their workout performance without needing to interpret raw sensor data themselves.
+Gym members (wearing sensor devices) — who want clear, simple insight into their workout performance without needing to interpret raw sensor data themselves.
 
 # 3. The Engine
 Data files used:
-- wearable_person_metadata.csv— per-person info: weight, fitness goal, fitness level, resting/max heart rate, BMR
+- wearable_person_metadata.csv— person.id info: weight, fitness goal, fitness level, resting/max heart rate, BMR
 - wearable_session_summary.csv —one row per session: duration, mean/max heart rate, cadence (used to populate the Workout Summary tab)
 - wearable_sensor_data.mat —raw sensor data per session: heart rate over time, activity type, start/end times, plus a built-in MET reference table
 
 Metrics computed
 - Calories burned per session:Calories = MET × weight_kg × duration_hours, where MET (metabolic equivalent) comes from the activity's entry in the reference table
-- Effort level: the person's mean heart rate during the session, expressed as a percentage of their estimated max heart rate
+- Effort level: the person's mean heart rate during the session, given by wearable_session_summary.csv
 
 Data processing steps:
 - Heart rate smoothing — a moving average (movmean, 25-sample window) is applied to the raw heart rate signal before computing the mean, to reduce sensor noise
@@ -54,3 +54,4 @@ Known limitations / assumptions!
 - All three files must be successfully imported before any results will display; if only some are loaded, the app will not work and the user will need to finish importing rather than showing partial results.
 - The effort indicator uses a simplified 3-level scale (green/yellow/red) based on % of estimated max heart rate.
 - If the sensor .mat file doesn't include its own MET reference table, the app falls back to a hardcoded table with the same standard MET values, so results stay consistent
+
